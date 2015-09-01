@@ -2,7 +2,7 @@
 layout: post
 comment: true
 title:  "Create a persistent database service on Grid'5000"
-date: 2015-08-28 19:45:00
+date: 2015-09-01 10:46:00
 tags:
 - Grid5000
 - Tutorial
