@@ -123,7 +123,7 @@ root@parapide-9:~# screen kvm -m 1024 -drive format=raw,file=rbd:pmorillo_rbd/de
 
 ### Set hostname
 
-Here `apt-get update` command will fail because the system cannot resolv host `proxy`. [SLIRP](http://wiki.qemu.org/Documentation/Networking#User_Networking_.28SLIRP.29)
+Here `apt-get update` command will fail because the system cannot resolve host `proxy`. [SLIRP](http://wiki.qemu.org/Documentation/Networking#User_Networking_.28SLIRP.29)
 does not send by default DNS search field. Add FQDN in `/etc/hostname` file will quickly solve the problem.
 
 Log in as root/grid5000, and :
