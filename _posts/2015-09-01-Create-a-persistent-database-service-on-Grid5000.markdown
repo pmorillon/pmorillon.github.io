@@ -218,6 +218,6 @@ mysql>
 Now you can use a persistent database during multiple experiments.
 Network performances are not optimal in this KVM configuration, but it's very simple to use.
 Currently we need to deploy a node with Kadeploy to start the VM, but in a near future,
-when production environment will be based on Debian 8 (Jessie), a simple `oarsub -I ./start_mysql_vm.sh` and the boot time of the virtual machine (few seconds) will be required.
+when production environment will be based on Debian 8 (Jessie), a simple `oarsub ./start_mysql_vm.sh` and the boot time of the virtual machine (few seconds) will be required.
 
 
