@@ -14,7 +14,7 @@ Tagged with {{ page.tags | join: ' - ' }}
 ## Introduction
 
 Usually on [Grid'5000](https://www.grid5000.fr), in order to deploy our own system we use [Kadeploy](http://kadeploy3.gforge.inria.fr).
-The lifetime of the system is very short, the duration of the [OAR](https://oar.imag.fr/dokuwiki/doku.php) job.
+The lifetime of the system is very short, the duration of the [OAR](https://oar.imag.fr) job.
 To keep system modifications, you need to update the deployed Kadeploy environment before the end of OAR job.
 This is sufficient in most simple cases, but for systems hosting a lot of datas usable through multiple experiments, it's not practical.
 
