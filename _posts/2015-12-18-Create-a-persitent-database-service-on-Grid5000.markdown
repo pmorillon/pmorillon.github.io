@@ -18,7 +18,7 @@ The lifetime of the system is very short, the duration of the [OAR](https://oar.
 To keep system modifications, you need to update the deployed Kadeploy environment before the end of OAR job.
 This is sufficient in most simple cases, but for systems hosting a lot of datas usable through multiple experiments, it's not practical.
 
-In this tutorial we will create a persistent system hosting a database, hosted on a node as a virtual machine with [KVM](http://www.linux-kvm.org).
+In this tutorial we will create a persistent system hosting a database, hosted on a node as a virtual machine with [KVM](http://www.linux-kvm.org), without deployment (only 20 secondes needed to start the service).
 This virtual machine will be stored on the [Ceph](http://www.ceph.com) distributed object store available at Rennes.
 
 ![schema](/images/g5k_permanent_db_tuto_img1_v2.png)
@@ -49,6 +49,7 @@ EOF
 G5K ❯ /home/pmorillo » curl -k https://api.grid5000.fr/sid/storage/ceph/auths/$USER.keyring > ~/.ceph/ceph.client.$USER.keyring
 {% endhighlight %}
 
+__Notes__ : Replace `user_login` by your username.
 
 ### Create a Rados Block Device based on Debian 7 (Wheezy)
 
