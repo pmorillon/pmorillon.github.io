@@ -19,7 +19,7 @@ To keep system modifications, you need to update the deployed Kadeploy environme
 This is sufficient in most simple cases, but for systems hosting a lot of datas usable through multiple experiments, it's not practical.
 
 In this tutorial we will create a persistent system hosting a database, hosted on a node as a virtual machine with [KVM](http://www.linux-kvm.org), without deployment (only 20 secondes needed to start the service).
-This virtual machine will be stored on the [Ceph](http://www.ceph.com) distributed object store available at Rennes.
+This virtual machine will be stored on the [Ceph](http://www.ceph.com) distributed object store available at Rennes and Nantes.
 
 ![schema](/images/g5k_permanent_db_tuto_img1_v2.png)
 
@@ -27,7 +27,7 @@ This virtual machine will be stored on the [Ceph](http://www.ceph.com) distribut
 
 ### Generate your Ceph Key and create an RBD pool
 
-On [Grid'5000 Ceph UI](https://api.grid5000.fr/sid/storage/ceph/ui/), click on `Generate Ceph key` (if no key appears) and create a Ceph pool name `username_rbd`.
+On Grid'5000 Ceph UI ([Rennes](https://api.grid5000.fr/sid/sites/rennes/storage/ceph/ui/),[Nantes](https://api.grid5000.fr/sid/sites/nantes/storage/ceph/ui/)), click on `Generate Ceph key` (if no key appears) and create a Ceph pool name `username_rbd`.
 
 ![Ceph pool creation](/images/g5k_permanent_db_tuto_img2.png)
 
@@ -88,7 +88,7 @@ From host `frontend.rennes.grid5000.fr` :
 {% highlight console %}
 G5K ❯ /home/pmorillo » ssh -p 2222 root@paranoia-7
 ...
-root@vm-mysql:~#
+root@(none):~#
 {% endhighlight %}
 
 
@@ -126,7 +126,7 @@ Edit `/etc/mysql/my.cnf`, comment line `bind-address = 127.0.0.1` and restart My
 root@vm-mysql:~# service mysql restart
 Stopping MySQL database server: mysqld.
 Starting MySQL database server: mysqld ..
-Checking for tables which need an upgrade, are corrupt or were 
+Checking for tables which need an upgrade, are corrupt or were
 not closed cleanly..
 root@vm-mysql:~# shutdown -h now
 {% endhighlight %}
@@ -145,8 +145,8 @@ G5K(736746) ❯ /home/pmorillo » screen kvm -m 1024 -drive format=raw,file=rbd:
 From host `frontend.rennes.grid5000.fr` :
 
 {% highlight console %}
-G5K ❯ /home/pmorillo » mysql -u grid5000 -h paranoia-7 --port 13306 -p                                                                                                                                                                                      frennes.rennes.grid5000.fr  1 ↵ 
-Enter password: 
+G5K ❯ /home/pmorillo » mysql -u grid5000 -h paranoia-7 --port 13306 -p                                                                                                                                                                                      frennes.rennes.grid5000.fr  1 ↵
+Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 37
 Server version: 5.5.44-0+deb7u1 (Debian)
@@ -176,4 +176,3 @@ mysql>
 
 Now you can use a persistent database during multiple experiments.
 Network performances are not optimal in this KVM configuration, but it's very simple to use, without privileges.
-
