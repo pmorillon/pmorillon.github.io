@@ -8,3 +8,5 @@ github_username:  pmorillon
 
 # Build settings
 markdown: kramdown
+
+theme: jekyll-theme-midnight
